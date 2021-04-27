@@ -1,0 +1,21 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "k.petrov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "babel-loader": "^8.2.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.25.0",
+    "postcss": "^8.2.13",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.13.0",
+    "webpack": "^5.35.1"
+  }
+}

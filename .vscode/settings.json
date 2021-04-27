@@ -1,0 +1,64 @@
+{
+  // ===
+  // Spacing
+  // ===
+
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  // ===
+  // Files
+  // ===
+
+  "files.exclude": {
+    "**/*.log": true,
+    "**/*.log*": true
+  },
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+
+  // ===
+  // Event Triggers
+  // ===
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "eslint.validate": ["javascript"],
+
+  // ===
+  // HTML
+  // ===
+
+  "html.format.enable": false,
+  "emmet.triggerExpansionOnTab": true,
+
+  // ===
+  // JS(ON)
+  // ===
+
+  "javascript.format.enable": false,
+  "json.format.enable": false,
+
+  // ===
+  // CSS
+  // ===
+
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false
+}
