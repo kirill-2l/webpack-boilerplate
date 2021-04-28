@@ -1,0 +1,9 @@
+@include font-face(
+  OpenSans,
+  '../assets/fonts/OpenSans/OpenSans-Regular',
+  400,
+  normal,
+  woff2 woff
+);
+
+$baseFont: 'OpenSans', sans-serif;

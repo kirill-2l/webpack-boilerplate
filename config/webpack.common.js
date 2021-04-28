@@ -13,6 +13,14 @@ module.exports = {
       path: '../.env',
     }),
   ].concat(htmlPlugins),
+  module: {
+    rules: [
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
   resolve: {
     alias: {
       '@utils': path.resolve(__dirname, '../src/utils'),
