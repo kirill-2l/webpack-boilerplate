@@ -14,6 +14,7 @@ const generateHtmlPlugins = (templateDir) => {
     return new HTMLWebpackPlugin({
       filename: `${name}.html`,
       template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+      minify: false,
     });
   });
 };
