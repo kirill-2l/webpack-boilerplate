@@ -1,7 +1,7 @@
 const path = require('path');
 const { generateHtmlPlugins } = require('./utils');
 
-const htmlPlugins = generateHtmlPlugins('./src/views');
+const htmlPlugins = generateHtmlPlugins('../src/views/');
 
 module.exports = {
   entry: {
@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     filename: '[name][hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     clean: true,
   },
 };

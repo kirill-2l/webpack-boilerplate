@@ -18,4 +18,4 @@ const generateHtmlPlugins = (templateDir) => {
   });
 };
 
-module.export = { generateHtmlPlugins };
+module.exports = { generateHtmlPlugins };
