@@ -26,9 +26,4 @@ module.exports = {
       '@utils': path.resolve(__dirname, '../src/utils'),
     },
   },
-  output: {
-    filename: '[name][fullhash].js',
-    path: path.resolve(__dirname, '../dist'),
-    clean: true,
-  },
 };
