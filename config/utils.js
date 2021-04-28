@@ -15,6 +15,7 @@ const generateHtmlPlugins = (templateDir) => {
       filename: `${name}.html`,
       template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
       minify: false,
+      title: 'Webpack boilerplate',
     });
   });
 };

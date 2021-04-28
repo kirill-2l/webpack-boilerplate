@@ -34,6 +34,10 @@ module.exports = merge(common, {
         },
       },
       {
+        test: /\.pug$/i,
+        use: [{ loader: 'pug-loader', options: { pretty: true } }],
+      },
+      {
         test: /\.html$/i,
         loader: 'html-loader',
       },
