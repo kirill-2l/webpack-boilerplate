@@ -1,13 +1,18 @@
 const path = require('path');
-const { generateHtmlPlugins } = require('./utils');
+const Dotenv = require('dotenv-webpack');
 
+const { generateHtmlPlugins } = require('./utils');
 const htmlPlugins = generateHtmlPlugins('../src/views/');
 
 module.exports = {
   entry: {
     app: './src/index.js',
   },
-  plugins: [].concat(htmlPlugins),
+  plugins: [
+    new Dotenv({
+      path: '../.env',
+    }),
+  ].concat(htmlPlugins),
   resolve: {
     alias: {
       '@utils': path.resolve(__dirname, '../src/utils'),

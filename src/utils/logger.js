@@ -5,17 +5,17 @@
 
 export default {
   info(...args) {
-    if (DEBUG === true) console.info(...args);
+    if (process.env.DEBUG === true) console.info(...args);
   },
 
   warn(...args) {
-    if (DEBUG === true) console.warn(...args);
+    if (process.env.DEBUG === true) console.warn(...args);
   },
 
   error(...args) {
-    if (DEBUG === true) console.error(...args);
+    if (process.env.DEBUG === true) console.error(...args);
   },
   table(object) {
-    if (DEBUG === true) console.table(object);
+    if (process.env.DEBUG === true) console.table(object);
   },
 };
