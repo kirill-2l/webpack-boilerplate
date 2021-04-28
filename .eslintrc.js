@@ -1,16 +1,19 @@
 module.exports = {
   root: true,
-  extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
   env: {
     browser: true,
     amd: true,
     node: true,
   },
-  globals: {
-    DEBUG: 'readonly',
-  },
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2016,
+  },
+  extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
+  rules: {
+    'import/no-extraneous-dependencies': [error, { devDependencies: true }],
+  },
+  globals: {
+    DEBUG: 'readonly',
   },
 };
