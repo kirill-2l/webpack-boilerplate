@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: '../.env',
+      path: './.env',
     }),
   ].concat(htmlPlugins),
   module: {
@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   output: {
-    filename: '[name][hash].js',
+    filename: '[name][fullhash].js',
     path: path.resolve(__dirname, '../dist'),
     clean: true,
   },
