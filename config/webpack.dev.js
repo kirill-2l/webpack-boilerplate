@@ -9,6 +9,8 @@ module.exports = merge(common, {
   devServer: {
     contentBase: [
       path.join(__dirname, '../src/views'),
+      path.join(__dirname, '../src/components'),
+      path.join(__dirname, '../src/modules'),
       path.join(__dirname, '../src/assets'),
     ],
     watchContentBase: true,
