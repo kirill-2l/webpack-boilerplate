@@ -11,7 +11,7 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
   rules: {
-    'import/no-extraneous-dependencies': [error, { devDependencies: true }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   globals: {
     DEBUG: 'readonly',
