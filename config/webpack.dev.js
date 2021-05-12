@@ -7,6 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
+    stats: 'errors-warnings',
     contentBase: [
       path.join(__dirname, '../src/views'),
       path.join(__dirname, '../src/components'),
@@ -35,10 +36,7 @@ module.exports = merge(common, {
           filename: 'assets/images/[name][ext]',
         },
       },
-      {
-        test: /\.pug$/i,
-        use: [{ loader: 'pug-loader', options: { pretty: true } }],
-      },
+
       {
         test: /\.html$/i,
         loader: 'html-loader',

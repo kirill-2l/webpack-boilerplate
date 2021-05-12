@@ -19,5 +19,6 @@ const generateHtmlPlugins = (templateDir) => {
     });
   });
 };
+generateHtmlPlugins('../src/views/');
 
 module.exports = { generateHtmlPlugins };
