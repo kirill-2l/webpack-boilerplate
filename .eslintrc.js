@@ -11,6 +11,9 @@ module.exports = {
     ecmaVersion: 2016,
   },
   extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
+  rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  },
   globals: {
     DEBUG: 'readonly',
   },
