@@ -1,6 +1,5 @@
-const path = require('path');
 const Dotenv = require('dotenv-webpack');
-
+const paths = require('./paths');
 const { generateHtmlPlugins } = require('./utils');
 
 const htmlPlugins = generateHtmlPlugins('../src/views/');
@@ -31,6 +30,10 @@ module.exports = {
         },
       },
       {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
         test: /\.pug$/i,
         use: [{ loader: 'pug-loader', options: { pretty: true } }],
       },
@@ -38,10 +41,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json'],
-    alias: {
-      '@utils': path.resolve(__dirname, '../src/utils'),
-      '@images': path.resolve(__dirname, '../src/assets/img'),
-      '@fonts': path.resolve(__dirname, '../src/assets/fonts'),
-    },
+    alias: paths.alias,
   },
 };

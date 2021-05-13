@@ -1,6 +1,5 @@
-const path = require('path');
-
 const { merge } = require('webpack-merge');
+const paths = require('./paths');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -8,20 +7,17 @@ module.exports = merge(common, {
   devtool: 'eval-source-map',
   devServer: {
     stats: 'errors-warnings',
-    contentBase: [
-      path.join(__dirname, '../src/views'),
-      path.join(__dirname, '../src/components'),
-      path.join(__dirname, '../src/modules'),
-      path.join(__dirname, '../src/assets'),
-    ],
+    contentBase: paths.output,
     watchContentBase: true,
-    port: 9090,
+    publicPath: '/',
     historyApiFallback: true,
     compress: true,
+    hot: true,
     overlay: {
       warnings: true,
       errors: true,
     },
+    ...paths.server,
   },
   module: {
     rules: [
@@ -35,11 +31,6 @@ module.exports = merge(common, {
         generator: {
           filename: 'assets/images/[name][ext]',
         },
-      },
-
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
       },
     ],
   },

@@ -1,4 +1,4 @@
-const path = require('path');
+const paths = require('./paths');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -7,28 +7,30 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: false,
+  devtool: 'eval-source-map',
   output: {
     filename: 'js/[name][fullhash].js',
-    path: path.resolve(__dirname, '../dist'),
+    path: paths.output,
     clean: true,
   },
   module: {
     rules: [
       {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+          publicPath: '../',
+        },
+      },
+      {
         test: /\.s?css$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.html$/i,
         use: [
           {
-            loader: 'html-loader',
             options: {
               minimize: false,
             },

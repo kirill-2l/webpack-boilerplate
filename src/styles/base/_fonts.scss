@@ -1,9 +1,8 @@
-@include font-face(
-  OpenSans,
-  '../assets/fonts/OpenSans/OpenSans-Regular',
-  400,
-  normal,
-  woff2 woff
-);
-
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff'),
+    url('../assets/fonts/OpenSans/OpenSans-Regular.woff') format('woff2');
+}
 $baseFont: 'OpenSans', sans-serif;
