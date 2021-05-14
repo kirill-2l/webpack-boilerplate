@@ -1,7 +1,7 @@
-const paths = require('./paths');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const paths = require('./paths');
 
 const common = require('./webpack.common.js');
 
@@ -51,5 +51,10 @@ module.exports = merge(common, {
       `...`,
       new CssMinimizerPlugin(),
     ],
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
 });
