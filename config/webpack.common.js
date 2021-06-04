@@ -1,18 +1,20 @@
 const Dotenv = require('dotenv-webpack');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const { extendDefaultPlugins } = require('svgo');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
+const smp = new SpeedMeasurePlugin();
+
 const paths = require('./paths');
 const { generateHtmlPlugins } = require('./utils');
 
 const htmlPlugins = generateHtmlPlugins('../src/views/');
 
-module.exports = {
+module.exports = smp.wrap({
   entry: {
     app: './src/index.js',
   },
-  plugins: [
-    new Dotenv({
-      path: './.env',
-    }),
-  ].concat(htmlPlugins),
+  stats: 'normal',
   module: {
     rules: [
       {
@@ -36,7 +38,7 @@ module.exports = {
         test: /\.(png|svg|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name][ext]',
+          filename: 'assets/img/[name][ext]',
         },
       },
       {
@@ -53,4 +55,31 @@ module.exports = {
     extensions: ['.js', '.json'],
     alias: paths.alias,
   },
-};
+  plugins: [
+    new Dotenv({
+      path: './.env',
+    }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        // Lossless optimization with custom option
+        // Feel free to experiment with options for better result for you
+        plugins: [
+          ['gifsicle', { interlaced: true }],
+          ['jpegtran', { progressive: true }],
+          ['optipng', { optimizationLevel: 5 }],
+          [
+            'svgo',
+            {
+              plugins: extendDefaultPlugins([
+                {
+                  name: 'removeViewBox',
+                  active: false,
+                },
+              ]),
+            },
+          ],
+        ],
+      },
+    }),
+  ].concat(htmlPlugins),
+});

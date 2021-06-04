@@ -25,13 +25,6 @@ module.exports = merge(common, {
         test: /\.s?css$/i,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
-      {
-        test: /\.(png|svg|jpe?g|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/images/[name][ext]',
-        },
-      },
     ],
   },
 });
