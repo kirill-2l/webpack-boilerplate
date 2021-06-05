@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "svgo": "^2.3.0"
+    "svgo": "^2.3.0",
+    "tiny-slider": "^2.9.3"
   }
 }
