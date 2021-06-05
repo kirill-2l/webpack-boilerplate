@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    amd: true,
+    commonjs: true,
     node: true,
   },
   parser: '@babel/eslint-parser',
@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
+
   globals: {
     DEBUG: 'readonly',
   },

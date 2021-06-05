@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const paths = require('./paths');
 
 const common = require('./webpack.common.js');
@@ -42,6 +43,28 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',
+    }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        // Lossless optimization with custom option
+        // Feel free to experiment with options for better result for you
+        plugins: [
+          ['gifsicle', { interlaced: true }],
+          ['jpegtran', { progressive: true }],
+          ['optipng', { optimizationLevel: 5 }],
+          [
+            'svgo',
+            {
+              plugins: extendDefaultPlugins([
+                {
+                  name: 'removeViewBox',
+                  active: false,
+                },
+              ]),
+            },
+          ],
+        ],
+      },
     }),
   ],
   optimization: {

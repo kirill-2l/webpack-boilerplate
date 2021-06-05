@@ -1,18 +1,18 @@
 const Dotenv = require('dotenv-webpack');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
+const smp = new SpeedMeasurePlugin();
+
 const paths = require('./paths');
 const { generateHtmlPlugins } = require('./utils');
 
 const htmlPlugins = generateHtmlPlugins('../src/views/');
 
-module.exports = {
+module.exports = smp.wrap({
   entry: {
     app: './src/index.js',
   },
-  plugins: [
-    new Dotenv({
-      path: './.env',
-    }),
-  ].concat(htmlPlugins),
+  stats: 'normal',
   module: {
     rules: [
       {
@@ -36,7 +36,7 @@ module.exports = {
         test: /\.(png|svg|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[name][ext]',
+          filename: 'assets/img/[name][ext]',
         },
       },
       {
@@ -53,4 +53,9 @@ module.exports = {
     extensions: ['.js', '.json'],
     alias: paths.alias,
   },
-};
+  plugins: [
+    new Dotenv({
+      path: './.env',
+    }),
+  ].concat(htmlPlugins),
+});
