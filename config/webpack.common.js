@@ -1,6 +1,4 @@
 const Dotenv = require('dotenv-webpack');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const { extendDefaultPlugins } = require('svgo');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 const smp = new SpeedMeasurePlugin();
@@ -58,28 +56,6 @@ module.exports = smp.wrap({
   plugins: [
     new Dotenv({
       path: './.env',
-    }),
-    new ImageMinimizerPlugin({
-      minimizerOptions: {
-        // Lossless optimization with custom option
-        // Feel free to experiment with options for better result for you
-        plugins: [
-          ['gifsicle', { interlaced: true }],
-          ['jpegtran', { progressive: true }],
-          ['optipng', { optimizationLevel: 5 }],
-          [
-            'svgo',
-            {
-              plugins: extendDefaultPlugins([
-                {
-                  name: 'removeViewBox',
-                  active: false,
-                },
-              ]),
-            },
-          ],
-        ],
-      },
     }),
   ].concat(htmlPlugins),
 });
