@@ -1,5 +1,5 @@
-mixin button(additionalClass, text, type='button', href="#")
+mixin button(text, additionalClass, color, type='button', href="#")
   if type === 'a'
-    a.button(class=additionalClass ?  additionalClass : '', href=href)=text
+    a.button(class=(additionalClass ? additionalClass : '', color ? color : ''), href=href)=text
   if type === 'button'
-    button(class=additionalClass ?  additionalClass : '', 'button' href=href)=text
+    button.button(class=(additionalClass ? additionalClass : '', color ? color : ''), href=href)=text
