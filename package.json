@@ -53,6 +53,6 @@
   },
   "dependencies": {
     "svgo": "^2.3.0",
-    "tiny-slider": "^2.9.3"
+    "swiper": "^6.7.0"
   }
 }
