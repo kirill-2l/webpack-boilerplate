@@ -1,0 +1,5 @@
+mixin button(additionalClass, text, type='button', href="#")
+  if type === 'a'
+    a.button(class=additionalClass ?  additionalClass : '', href=href)=text
+  if type === 'button'
+    button(class=additionalClass ?  additionalClass : '', 'button' href=href)=text
