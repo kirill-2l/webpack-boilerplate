@@ -2,4 +2,7 @@
   align-items: center;
   display: flex;
   max-width: 240px;
+  &.purple {
+    background-color: #482c8e;
+  }
 }
