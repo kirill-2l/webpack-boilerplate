@@ -45,7 +45,15 @@ module.exports = smp.wrap({
       },
       {
         test: /\.pug$/i,
-        use: [{ loader: 'pug-loader', options: { pretty: true } }],
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+              root: paths.alias['@'],
+            },
+          },
+        ],
       },
     ],
   },
