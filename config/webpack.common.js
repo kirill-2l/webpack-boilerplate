@@ -33,11 +33,19 @@ module.exports = smp.wrap({
         },
       },
       {
-        test: /\.(png|svg|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/img/[name][ext]',
         },
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset/source',
+        generator: {
+          filename: 'assets/img/icons/[name][ext]',
+        },
+        use: 'svgo-loader',
       },
       {
         test: /\.html$/i,

@@ -20,8 +20,10 @@ module.exports = {
     fonts: 8192,
   },
   alias: {
+    '@': path.resolve(__dirname, '../src'),
     '@utils': path.resolve(__dirname, '../src/utils'),
     '@images': path.resolve(__dirname, '../src/assets/images'),
+    '@icons': path.resolve(__dirname, '../src/assets/icons'),
     '@fonts': path.resolve(__dirname, '../src/assets/fonts'),
   },
 };
